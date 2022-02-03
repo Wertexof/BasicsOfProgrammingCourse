@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.c
+stdio.h
+-
+stdlib.h
+-
+malloc.h
+-
+vector.h
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.h
+
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.h
+stdio.h
+-
+stdbool.h
+-
+

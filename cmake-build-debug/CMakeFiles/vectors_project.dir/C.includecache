@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.c
+stdio.h
+-
+stdlib.h
+-
+malloc.h
+-
+vector.h
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.h
+
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.h
+stdio.h
+-
+stdbool.h
+-
+
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.c
+vectorVoid.h
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.h
+
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.h
+
+C:/Users/perso/CLionProjects/vectors_project/main.c
+stdio.h
+-
+stdint.h
+-
+libs/data_structures/vector/vector.h
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.h
+libs/data_structures/vector/vector.c
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.c
+libs/data_structures/vector/vectorVoid.h
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.h
+libs/data_structures/vector/vectorVoid.c
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.c
+
