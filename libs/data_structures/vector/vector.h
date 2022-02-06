@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <malloc.h>
 
 typedef struct vector {
     int *data;
@@ -26,8 +27,14 @@ bool isVectorFull(const vector *v); //проверка на то, являетс
 
 int getVectorValue(vector *v, size_t i); //возвращает i-ый элемент вектора v
 
-void pushBack(vector *v, int x); //добавляет элемент x в конец вектора v
+void pushVectorBack(vector *v, int x); //добавляет элемент x в конец вектора v
 
-void popBack(vector *v); //удаляет последний элемент из вектора
+void popVectorBack(vector *v); //удаляет последний элемент из вектора
+
+int* atVector(vector *v, size_t index);
+
+int* back(vector *v);
+
+int* front(vector *v);
 
 #endif

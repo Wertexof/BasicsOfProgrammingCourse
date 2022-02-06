@@ -45,11 +45,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "libs/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "libs/data_structures/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "libs/vector/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/vectors_project.dir/DependInfo.cmake"
-  "libs/data_structures/CMakeFiles/data_structures.dir/DependInfo.cmake"
+  "libs/vector/CMakeFiles/data_structures.dir/DependInfo.cmake"
   )

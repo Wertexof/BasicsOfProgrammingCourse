@@ -87,7 +87,7 @@ vectors_project_EXTERNAL_OBJECTS =
 
 vectors_project.exe: CMakeFiles/vectors_project.dir/main.c.obj
 vectors_project.exe: CMakeFiles/vectors_project.dir/build.make
-vectors_project.exe: libs/data_structures/libdata_structures.a
+vectors_project.exe: libs/vector/libdata_structures.a
 vectors_project.exe: CMakeFiles/vectors_project.dir/linklibs.rsp
 vectors_project.exe: CMakeFiles/vectors_project.dir/objects1.rsp
 vectors_project.exe: CMakeFiles/vectors_project.dir/link.txt

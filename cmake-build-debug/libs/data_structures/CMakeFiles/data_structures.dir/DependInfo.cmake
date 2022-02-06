@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.c" "C:/Users/perso/CLionProjects/vectors_project/cmake-build-debug/libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.obj"
+  "C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.c" "C:/Users/perso/CLionProjects/vectors_project/cmake-build-debug/libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
