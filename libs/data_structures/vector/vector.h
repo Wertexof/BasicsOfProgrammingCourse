@@ -11,6 +11,8 @@ typedef struct vector {
     size_t capacity;
 } vector;
 
+void badAlloc(); //функция вывода сообщения об ошибке
+
 vector createVector(size_t n); //возвращает структуру-дескриптор вектор из n значений
 
 void reserveVector(vector *v, size_t newCapacity); //изменяет количество памяти, выделенное под хранение элементов вектора

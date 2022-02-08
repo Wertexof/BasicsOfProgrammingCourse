@@ -3,14 +3,18 @@
 #include <malloc.h>
 #include "vector.h"
 
+void badAlloc() {
+    fprintf(stderr, "bad alloc");
+    exit(1);
+}
+
 vector createVector(size_t n) {
     vector v = {malloc(sizeof(int) * n), 0, n};
     v.size = 0;
     v.capacity = n;
     v.data = malloc(n);
     if (v.data == NULL) {
-        fprintf(stderr, "bad alloc");
-        exit(1);
+        badAlloc();
     } else
         return v;
 }
@@ -22,8 +26,7 @@ void reserveVector(vector *v, size_t newCapacity) {
     if (newCapacity == 0)
         return;
     if (v->data == NULL) {
-        fprintf(stderr, "bad alloc");
-        exit(1);
+        badAlloc();
     }
 }
 
