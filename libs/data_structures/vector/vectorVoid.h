@@ -26,7 +26,7 @@ void badAlloc_(); //функция вывода сообщения об ошиб
 vectorVoid createVectorVoid(size_t n, size_t baseTypeSize); //возвращает структуру-дескриптор вектор из n значений
 
 void reserveVectorVoid(vectorVoid *v, size_t newCapacity); /*изменяет количество памяти, выделенное под хранение
-элементов вектора*/
+                                                                                             элементов вектора*/
 
 void shrinkVectorVoidToFit(vectorVoid *v); //освобождает память, выделенную под неиспользуемые элементы
 
@@ -39,7 +39,7 @@ bool isVectorVoidEmpty(vectorVoid *v); //проверка на то, являе�
 bool isVectorVoidFull(vectorVoid *v); //проверка на то, является ли вектор полным
 
 void getVectorVoidValue(vectorVoid *v, size_t index, void *destination); /*записывает по адресу destination index-ый
-элемент вектора v*/
+                                                                                                 элемент вектора v*/
 
 void setVectorVoidValue(vectorVoid *v, size_t index, void *source); //записывает на index-ый элемент вектора v значение
 

@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/matrix/matrix.c
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+malloc.h
+-
+assert.h
+-
+matrix.h
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/matrix/matrix.h
+
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/matrix/matrix.h
+
 C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.c
 stdio.h
 -
@@ -21,10 +37,6 @@ stdio.h
 -
 stdbool.h
 -
-
-C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.c
-vectorVoid.h
-C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.h
-
-C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vectorVoid.h
+malloc.h
+-
 

@@ -14,18 +14,20 @@ typedef struct position {
     int colIndex;
 } position;
 
-//размещает в динамической памяти матрицу размером nRows на nCols
-matrix getMemMatrix(int nRows, int nCols);
+matrix getMemMatrix(int nRows, int nCols); //размещает в динамической памяти матрицу размером nRows на nCols
 
-/*размещает в динамической памяти массив из
-nMatrices матриц размером nRows на nCols*/
-matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
+matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols); /*размещает в динамической памяти массив из
+                                                                     nMatrices матриц размером nRows на nCols*/
 
-/// dshfksld
-/// \param m sdfjd
-void freeMemMatrix(matrix m);
+void freeMemMatrix(matrix m); //освобождает память, выделенную под хранение матрицы m
 
-///
-/// \param ms
-/// \param nMatrices
-void freeMemMatrices(matrix *ms, int nMatrices);
+void freeMemMatrices(matrix *ms, int nMatrices); /*освобождает память, выделенную под хранение массива ms из
+                                                                                          nMatrices матриц*/
+
+void inputMatrix(matrix m); //ввод матрицы m
+
+void inputMatrices(matrix *ms, int nMatrices); //ввод массива из nMatrices матриц, хранящейся по адресу ms
+
+void outputMatrix(matrix m); //вывод матрицы m
+
+void outputMatrices(matrix *ms, int nMatrices); //вывод массива из nMatrices матриц, хранящейся по адресу ms
