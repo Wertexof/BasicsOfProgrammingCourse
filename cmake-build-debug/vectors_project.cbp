@@ -110,6 +110,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/matrix/matrix.c">
+			<Option target="data_structures"/>
+		</Unit>
+		<Unit filename="C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/matrix/matrix.h">
+			<Option target="data_structures"/>
+		</Unit>
 		<Unit filename="C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.c">
 			<Option target="data_structures"/>
 		</Unit>

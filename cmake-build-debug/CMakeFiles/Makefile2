@@ -112,12 +112,12 @@ libs/vector/clean: libs/vector/CMakeFiles/data_structures.dir/clean
 CMakeFiles/vectors_project.dir/all: libs/vector/CMakeFiles/data_structures.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\vectors_project.dir\build.make CMakeFiles/vectors_project.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\vectors_project.dir\build.make CMakeFiles/vectors_project.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target vectors_project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles --progress-num=4,5 "Built target vectors_project"
 .PHONY : CMakeFiles/vectors_project.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/vectors_project.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/vectors_project.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/vectors_project.dir/rule
@@ -138,12 +138,12 @@ CMakeFiles/vectors_project.dir/clean:
 libs/vector/CMakeFiles/data_structures.dir/all:
 	$(MAKE) $(MAKESILENT) -f libs\vector\CMakeFiles\data_structures.dir\build.make libs/vector/CMakeFiles/data_structures.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs\vector\CMakeFiles\data_structures.dir\build.make libs/vector/CMakeFiles/data_structures.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target data_structures"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target data_structures"
 .PHONY : libs/vector/CMakeFiles/data_structures.dir/all
 
 # Build rule for subdir invocation for target.
 libs/vector/CMakeFiles/data_structures.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 libs/vector/CMakeFiles/data_structures.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\perso\CLionProjects\vectors_project\cmake-build-debug\CMakeFiles 0
 .PHONY : libs/vector/CMakeFiles/data_structures.dir/rule
