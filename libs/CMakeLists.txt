@@ -1,1 +1,1 @@
-add_subdirectory(data_structures vector)
+add_subdirectory(data_structures)

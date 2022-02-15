@@ -165,3 +165,46 @@ bool isSymmetricMatrix(matrix *m) {
 
     return true;
 }
+
+void transposeSquareMatrix(matrix *m) {
+    if (!isSquareMatrix(m)) {
+        fprintf(stderr, "non-square matrix");
+        exit(1);
+    }
+
+    for (int i = 0; i < m->nRows; i++)
+        for (int j = i + 1; j < m->nCols; j++)
+            swap(&m->values[i][j], &m->values[j][i]);
+}
+
+position getMinValuePos(matrix *m) {
+    int minPosI = 0;
+    int minPosJ = 0;
+    int min = m->values[minPosI][minPosJ];
+
+    for (int i = 0; i < m->nRows; i++)
+        for (int j = 0; j < m->nCols; j++)
+            if (min > m->values[i][j]) {
+                minPosI = i;
+                minPosJ = j;
+                min = m->values[minPosI][minPosJ];
+            }
+
+    return (position) {minPosI, minPosJ};
+}
+
+position getMaxValuePos(matrix *m) {
+    int maxPosI = 0;
+    int maxPosJ = 0;
+    int max = m->values[maxPosI][maxPosJ];
+
+    for (int i = 0; i < m->nRows; i++)
+        for (int j = 0; j < m->nCols; j++)
+            if (max < m->values[i][j]) {
+                maxPosI = i;
+                maxPosJ = j;
+                max = m.values[maxPosI][maxPosJ];
+            }
+
+    return (position) {maxPosI, maxPosJ};
+}

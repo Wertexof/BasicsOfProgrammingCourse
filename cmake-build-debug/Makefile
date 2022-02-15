@@ -138,7 +138,7 @@ data_structures: cmake_check_build_system
 
 # fast build rule for target.
 data_structures/fast:
-	$(MAKE) $(MAKESILENT) -f libs\vector\CMakeFiles\data_structures.dir\build.make libs/vector/CMakeFiles/data_structures.dir/build
+	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
 .PHONY : data_structures/fast
 
 main.obj: main.c.obj

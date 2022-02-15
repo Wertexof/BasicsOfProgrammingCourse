@@ -1,4 +1,6 @@
 #include <assert.h>
+#include "matrix.h"
+#include "matrix.c"
 
 void test_pushBack_emptyVector() {
     vector v = createVector(0);
@@ -272,7 +274,7 @@ void tests_front() {
 }
 
 //======================================================================================================================
-//Global test:
+//Global test vector:
 void test_vector() {
     tests_createVector();
     tests_reserveVector();
@@ -285,4 +287,34 @@ void test_vector() {
     tests_atVector();
     tests_back();
     tests_front();
+}
+
+//MATRIX_TESTS==========================================================================================================
+
+matrix createMatrixFromArray(const int *a, int nRows, int nCols) {
+    matrix m = getMemMatrix(nRows, nCols);
+
+    int k = 0;
+    for (int i = 0; i < nRows; i++)
+        for (int j = 0; j < nCols; j++)
+            m->values[i][j] = a[k++];
+
+    return m;
+}
+
+void test_countZeroRows() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    1, 1, 0,
+                    0, 0, 0,
+                    0, 0, 1,
+                    0, 0, 0,
+                    0, 1, 1,
+            },
+            5, 3
+    );
+
+    assert (countZeroRows(m, 5, 3) == 2);
+
+    freeMemMatrix(m, 5);
 }
