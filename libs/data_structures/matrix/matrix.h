@@ -1,7 +1,7 @@
 #ifndef VECTORS_PROJECT_MATRIX_H
 #define VECTORS_PROJECT_MATRIX_H
 
-#endif //VECTORS_PROJECT_MATRIX_H
+#include <stdbool.h>
 
 typedef struct matrix {
     int **values; //элементы матрицы
@@ -62,3 +62,12 @@ void transposeSquareMatrix(matrix *m); //транспонирует квадра
 position getMinValuePos(matrix *m); //возвращает позицию минимального элемента матрицы m
 
 position getMaxValuePos(matrix *m); //возвращает позицию максимального элемента матрицы m
+
+matrix createMatrixFromArray(const int *a, int nRows, int nCols); /*возвращает матрицу, размера nRows на nCols,
+построенного из элементов массива a, размещенную в динамической памяти*/
+
+matrix *createMatrixArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols);
+/*возвращает указатель на нулевую матрицу массива из nMatrices матриц, размещенных в динамической памяти,
+построенных из элементов массива a*/
+
+#endif

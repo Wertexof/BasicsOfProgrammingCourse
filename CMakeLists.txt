@@ -5,5 +5,6 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(vectors_project main.c)
 
-add_subdirectory(libs)
+add_library(test libs/tasks.c libs/tests.c libs/tasks.c)
+target_link_libraries(vectors_project test)
 target_link_libraries(vectors_project data_structures)

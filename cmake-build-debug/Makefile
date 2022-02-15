@@ -64,16 +64,6 @@ CMAKE_BINARY_DIR = C:\Users\perso\CLionProjects\vectors_project\cmake-build-debu
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -83,6 +73,16 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -129,17 +129,65 @@ vectors_project/fast:
 .PHONY : vectors_project/fast
 
 #=============================================================================
-# Target rules for targets named data_structures
+# Target rules for targets named test
 
 # Build rule for target.
-data_structures: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 data_structures
-.PHONY : data_structures
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-data_structures/fast:
-	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
-.PHONY : data_structures/fast
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+libs/tasks.obj: libs/tasks.c.obj
+.PHONY : libs/tasks.obj
+
+# target to build an object file
+libs/tasks.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/libs/tasks.c.obj
+.PHONY : libs/tasks.c.obj
+
+libs/tasks.i: libs/tasks.c.i
+.PHONY : libs/tasks.i
+
+# target to preprocess a source file
+libs/tasks.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/libs/tasks.c.i
+.PHONY : libs/tasks.c.i
+
+libs/tasks.s: libs/tasks.c.s
+.PHONY : libs/tasks.s
+
+# target to generate assembly for a file
+libs/tasks.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/libs/tasks.c.s
+.PHONY : libs/tasks.c.s
+
+libs/tests.obj: libs/tests.c.obj
+.PHONY : libs/tests.obj
+
+# target to build an object file
+libs/tests.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/libs/tests.c.obj
+.PHONY : libs/tests.c.obj
+
+libs/tests.i: libs/tests.c.i
+.PHONY : libs/tests.i
+
+# target to preprocess a source file
+libs/tests.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/libs/tests.c.i
+.PHONY : libs/tests.c.i
+
+libs/tests.s: libs/tests.c.s
+.PHONY : libs/tests.s
+
+# target to generate assembly for a file
+libs/tests.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/libs/tests.c.s
+.PHONY : libs/tests.c.s
 
 main.obj: main.c.obj
 .PHONY : main.obj
@@ -173,8 +221,14 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... data_structures
+	@echo ... test
 	@echo ... vectors_project
+	@echo ... libs/tasks.obj
+	@echo ... libs/tasks.i
+	@echo ... libs/tasks.s
+	@echo ... libs/tests.obj
+	@echo ... libs/tests.i
+	@echo ... libs/tests.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

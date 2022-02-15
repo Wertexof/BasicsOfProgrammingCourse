@@ -1,6 +1,8 @@
 #include <assert.h>
-#include "matrix.h"
-#include "matrix.c"
+#include "data_structures/matrix/matrix.h"
+#include "data_structures/vector/vector.h"
+
+
 
 void test_pushBack_emptyVector() {
     vector v = createVector(0);
@@ -291,30 +293,56 @@ void test_vector() {
 
 //MATRIX_TESTS==========================================================================================================
 
-matrix createMatrixFromArray(const int *a, int nRows, int nCols) {
-    matrix m = getMemMatrix(nRows, nCols);
-
-    int k = 0;
-    for (int i = 0; i < nRows; i++)
-        for (int j = 0; j < nCols; j++)
-            m->values[i][j] = a[k++];
-
-    return m;
+void test_getMemMatrix_zeroElements() {
+    matrix m = getMemMatrix(0, 0);
+    assert(m.nRows == 0);
+    assert(m.nCols == 0);
+    freeMemMatrix(&m);
 }
 
-void test_countZeroRows() {
-    matrix m = createMatrixFromArray(
-            (int[]) {
-                    1, 1, 0,
-                    0, 0, 0,
-                    0, 0, 1,
-                    0, 0, 0,
-                    0, 1, 1,
-            },
-            5, 3
-    );
+void test_getMemMatrix_moreZeroElements() {
+    matrix m = getMemMatrix(7, 8);
+    assert(m.nRows == 7);
+    assert(m.nCols == 8);
+    freeMemMatrix(&m);
+}
 
-    assert (countZeroRows(m, 5, 3) == 2);
+void tests_getMemMatrix() {
+    test_getMemMatrix_zeroElements();
+    test_getMemMatrix_moreZeroElements();
+}
 
-    freeMemMatrix(m, 5);
+//======================================================================================================================
+
+void test_getMemArrayOfMatrices_notEmptyArray() {
+    int size = 5;
+    matrix *m = getMemArrayOfMatrices(size, 6, 4);
+    assert(m->nRows == 6);
+    assert(m->nCols == 4);
+
+    freeMemMatrices(m, size);
+}
+
+void tests_getMemArrayOfMatrices() {
+    test_getMemArrayOfMatrices_notEmptyArray();
+}
+
+//======================================================================================================================
+
+void test_freeMemMatrix_moreZeroElements() {
+    matrix m = getMemMatrix(5, 6);
+    freeMemMatrix(&m);
+    assert(m.nRows == 0);
+    assert(m.nCols == 0);
+    assert(m.values == NULL);
+}
+
+void tests_freeMemMatrix() {
+    test_freeMemMatrix_moreZeroElements();
+}
+
+void test_matrix() {
+    tests_getMemMatrix();
+    tests_getMemArrayOfMatrices();
+    tests_freeMemMatrix();
 }
