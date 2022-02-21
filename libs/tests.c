@@ -341,8 +341,21 @@ void tests_freeMemMatrix() {
     test_freeMemMatrix_moreZeroElements();
 }
 
+//======================================================================================================================
+//Global test matrix:
+
 void test_matrix() {
     tests_getMemMatrix();
     tests_getMemArrayOfMatrices();
     tests_freeMemMatrix();
+    tests_freeMemMatrix();
+    tests_swapRows();
+    tests_swapColumns();
+    tests_insertionSortRowsMatrixByRowCriteria();
+    tests_insertionSortColsMatrixByColCriteria();
+    tests_isEMatrix();
+    tests_isSymmetricMatrix();
+    tests_transposeSquareMatrix();
+    tests_getMinValuePos();
+    tests_getMaxValuePos();
 }

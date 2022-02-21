@@ -135,7 +135,6 @@ bool twoMatricesEqual(matrix *m1, matrix *m2) {
         for (int j = 0; j < m1->nCols; j++)
             if (m1->values[i][j] != m2->values[i][j])
                 return false;
-
     return true;
 }
 
@@ -162,7 +161,6 @@ bool isSymmetricMatrix(matrix *m) {
         for (int j = i + 1; j < m->nCols; j++)
             if (m->values[i][j] != m->values[j][i])
                 return false;
-
     return true;
 }
 
