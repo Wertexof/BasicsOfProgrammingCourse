@@ -87,6 +87,28 @@ float getDistance(int *a, int n) {
     return sqrt(distance);
 }
 
+int cmp_long_long(const void *pa, const void *pb) {
+    long long arg1 = *(const long long *) pa;
+    long long arg2 = *(const long long *) pb;
+
+    if (arg1 < arg2) return -1;
+    if (arg1 > arg2) return 1;
+
+    return 0;
+}
+
+int countNUnique(long long int *a, int n) {
+    qsort(a, n, sizeof(long long), cmp_long_long);
+    int nUniqueElements = 1;
+    
+    for (int i = 0; i < n-1; ++i) {
+        if (a[i] != a[i + 1])
+            nUniqueElements++;
+    }
+
+    return nUniqueElements;
+}
+
 
 /*1. Дана квадратная матрица, все элементы которой различны. Поменять местами
          строки, в которых находятся максимальный и минимальный элементы*/
@@ -207,8 +229,46 @@ void sortByDistances(matrix *m) {
 
 /*10. Определить количество классов эквивалентных строк данной прямоугольной матрицы. Строки считать
                                                      эквивалентными, если равны суммы их элементов*/
-int countEqClassesByRowsSum(matrix m) {
+int countEqClassesByRowsSum(matrix *m) {
+    long long *rowSumArray = (long long *) malloc(sizeof(long long)*m->nRows);
+    for (int i = 0; i < m->nRows; ++i) {
+        rowSumArray[i] = getSum(m->values[i], m->nCols);
+    }
 
+    return countNUnique(rowSumArray, m->nRows);
+}
+
+int getNSpecialElement(matrix *m) {
+    int *maxPosInCol = (int *) malloc(sizeof(int) * m->nCols);
+    int *maxOfCols = (int *) malloc(sizeof(int) * m->nCols);
+
+    for (int i = 0; i < m->nRows; ++i) {
+        for (int j = 0; j < m->nCols; ++j) {
+            if (i == 0) {
+                maxOfCols[j] = m->values[i][j];
+                maxPosInCol[j] = 0;
+            } else if (maxOfCols[j] < m->values[i][j]) {
+                maxOfCols[j] = m->values[i][j];
+                maxPosInCol[j] = i;
+            }
+        }
+    }
+
+    int countSpecialEl = m->nCols;
+    for (int i = 0; i < m->nRows; ++i) {
+        for (int j = 0; j < m->nCols; ++j) {
+            if (maxPosInCol[j] == i)
+                continue;
+            maxOfCols[j] -= m->values[i][j];
+            if (maxOfCols[j] <= 0)
+                countSpecialEl--;
+        }
+    }
+
+    free(maxPosInCol);
+    free(maxOfCols);
+
+    return countSpecialEl;
 }
 
 /*11. Дана квадратная матрица. Определить 𝑘 – количество "особых" элементов матрицы, считая элемент "особым",
