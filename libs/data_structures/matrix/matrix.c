@@ -76,7 +76,7 @@ void swapRows(matrix *m, int i1, int i2) {
     m->values[i2] = t;
 }
 
-void swapColumns(matrix *m, int j1, int j2) {
+void swapCols(matrix *m, int j1, int j2) {
     for (int i = 0; i < m->nRows; i++)
         swap(&m->values[i][j1 - 1], &m->values[i][j2 - 1]);
 }
@@ -116,7 +116,7 @@ void insertionSortColsMatrixByColCriteria(matrix *m, int (*criteria)(int *, int)
         int j = i;
         while (a[j] < a[j - 1] && j > 0) {
             swap(&a[j], &a[j - 1]);
-            swapColumns(m, j, j - 1);
+            swapCols(m, j, j - 1);
             j--;
         }
     }
@@ -128,9 +128,10 @@ bool isSquareMatrix(matrix *m) {
     return m->nCols == m->nCols;
 }
 
-bool twoMatricesEqual(matrix *m1, matrix *m2) {
+bool areTwoMatricesEqual(matrix *m1, matrix *m2) {
     if (m1->nRows != m2->nRows || m1->nCols != m2->nCols)
         return false;
+
     for (int i = 0; i < m1->nRows; i++)
         for (int j = 0; j < m1->nCols; j++)
             if (m1->values[i][j] != m2->values[i][j])
