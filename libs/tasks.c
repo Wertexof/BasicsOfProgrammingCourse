@@ -100,7 +100,7 @@ int cmp_long_long(const void *pa, const void *pb) {
 int countNUnique(long long int *a, int n) {
     qsort(a, n, sizeof(long long), cmp_long_long);
     int nUniqueElements = 1;
-    
+
     for (int i = 0; i < n-1; ++i) {
         if (a[i] != a[i + 1])
             nUniqueElements++;
@@ -108,6 +108,25 @@ int countNUnique(long long int *a, int n) {
 
     return nUniqueElements;
 }
+
+position getLeftMin(matrix *m) {
+    position min = {0, 0};
+
+    for (int i = 0; i < m->nRows; ++i) {
+        for (int j = 0; j < m->nCols; ++j) {
+            if (m->values[i][j] < m->values[min.rowIndex][min.colIndex]) {
+                min.rowIndex = i;
+                min.colIndex = j;
+            } else if (m->values[i][j] == m->values[min.rowIndex][min.colIndex] && j < min.colIndex) {
+                min.rowIndex = i;
+                min.colIndex = j;
+            }
+        }
+    }
+
+    return min;
+}
+
 
 
 /*1. Дана квадратная матрица, все элементы которой различны. Поменять местами
@@ -238,6 +257,8 @@ int countEqClassesByRowsSum(matrix *m) {
     return countNUnique(rowSumArray, m->nRows);
 }
 
+/*11. Дана квадратная матрица. Определить 𝑘 – количество "особых" элементов матрицы, считая элемент "особым",
+                                                    если он больше суммы остальных элементов своего столбца*/
 int getNSpecialElement(matrix *m) {
     int *maxPosInCol = (int *) malloc(sizeof(int) * m->nCols);
     int *maxOfCols = (int *) malloc(sizeof(int) * m->nCols);
@@ -271,8 +292,11 @@ int getNSpecialElement(matrix *m) {
     return countSpecialEl;
 }
 
-/*11. Дана квадратная матрица. Определить 𝑘 – количество "особых" элементов матрицы, считая элемент "особым",
-если он больше суммы остальных элементов своего столбца*/
-int getNSpecialElement(matrix m, int nRows, int nCols) {
-
+/*12. Дана квадратная матрица. Заменить предпоследнюю строку матрицы первым из столбцов,
+                                       в котором находится минимальный элемент матрицы*/
+void swapPenultimateRow(matrix *m, int n) {
+    position colOfFirstMin = getLeftMin(m);
+    for (int j = 0; j < m->nCols; ++j) {
+        m->values[m->nRows - 2][j] = m->values[j][colOfFirstMin.colIndex];
+    }
 }
