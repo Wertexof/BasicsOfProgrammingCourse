@@ -165,6 +165,19 @@ int countZeroRows(matrix *m) {
     return counter;
 }
 
+int getMatrixNorm(matrix *m) {
+    int absMax = abs(m->values[0][0]);
+    for (int i = 0; i < m->nRows; ++i) {
+        for (int j = 0; j < m->nCols; ++j) {
+            int currentEl = abs(m->values[i][j]);
+            if (currentEl > absMax)
+                absMax = currentEl;
+        }
+    }
+
+    return absMax;
+}
+
 
 
 /*1. Дана квадратная матрица, все элементы которой различны. Поменять местами
@@ -365,4 +378,32 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
         }
 
     free(matricesZeroRows);
+}
+
+/*15. Дан массив вещественных квадратных матриц. Вывести матрицы с наименьшей нормой. В качестве
+                                  нормы матрицы взять максимум абсолютных величин ее элементов*/
+void printOfMatricesInTheMinNorm(matrix *ms, int nMatrix) {
+    int *normMatrix = malloc(sizeof(int) * nMatrix);
+    for (int iMatrix = 0; iMatrix < nMatrix; ++iMatrix)
+        normMatrix[iMatrix] = getMatrixNorm(&ms[iMatrix]);
+
+    int minNorm = getMin(normMatrix, nMatrix);
+    for (int iMatrix = 0; iMatrix < nMatrix; ++iMatrix) {
+        if (minNorm == normMatrix[iMatrix])
+            outputMatrix(&ms[iMatrix]);
+    }
+
+    free(normMatrix);
+}
+
+/*16. Дана матрица. Определить 𝑘 – количество "особых" элементов данной матрицы, считая элемент
+          "особым" если в строке слева от него находятся меньшие элементы, а справа – большие*/
+int getNSpecialElement2(matrix *m) {
+
+}
+
+/*18. Дана вещественная квадратная матрица, все элементы которой различны. Найти скалярное произведение строки,
+                            в которой находится наибольший элемент матрицы, на столбец с наименьшим элементом*/
+long long getSpecialScalarProduct(matrix *m, int n) {
+
 }
