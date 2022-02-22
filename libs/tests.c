@@ -652,6 +652,246 @@ void tests_isSquareMatrix() {
 }
 
 //======================================================================================================================
+
+void test_isEMatrix_notEMatrix() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                1, 0, 0,
+                0, 1, 0,
+                0, 1, 1
+            },
+            3, 3);
+
+    assert(isEMatrix(&m) == false);
+    freeMemMatrix(&m);
+}
+
+void test_isEMatrix1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                1, 0, 0,
+                0, 1, 0,
+                0, 0, 1
+            },
+            3, 3);
+
+    assert(isEMatrix(&m) == true);
+    freeMemMatrix(&m);
+}
+
+void test_isEMatrix2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    8, 0, 0,
+                    0, 5, 0,
+                    0, 0, 4
+            },
+            3, 3);
+
+    assert(isEMatrix(&m) == true);
+    freeMemMatrix(&m);
+}
+
+void tests_isEMatrix() {
+    test_isEMatrix_notEMatrix();
+    test_isEMatrix1();
+    test_isEMatrix2();
+}
+
+//======================================================================================================================
+
+void test_isSymmetricMatrix_notSymmetricMatrix() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                1, 4, 9,
+                8, 9, 6,
+                4, 1, 8
+            },
+            3, 3);
+
+    assert(isSymmetricMatrix(&m) == false);
+    freeMemMatrix(&m);
+}
+
+void test_isSymmetricMatrix1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                1, 3, 4,
+                3, 1, 2,
+                4, 2, 1
+            },
+            3, 3);
+
+    assert(isSymmetricMatrix(&m) == true);
+    freeMemMatrix(&m);
+}
+
+void test_isSymmetricMatrix2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                3, 3, 3,
+                3, 0, 3,
+                3, 3, 3
+            },
+            3, 3);
+
+    assert(isSymmetricMatrix(&m) == true);
+    freeMemMatrix(&m);
+}
+
+void tests_isSymmetricMatrix() {
+    test_isSymmetricMatrix1();
+    test_isSymmetricMatrix2();
+}
+
+//======================================================================================================================
+
+void test_transposeSquareMatrix_differentNumOfRowsAndCols() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    4, 9,
+                    8, 3,
+                    1, 5
+            },
+            3, 2);
+    transposeSquareMatrix(&m);
+    matrix expectedResult = createMatrixFromArray(
+            (int[]) {
+                    4, 8, 1,
+                    9, 3, 5
+            },
+            2, 3);
+
+    assert(areTwoMatricesEqual(&m, &expectedResult));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedResult);
+}
+
+void test_transposeSquareMatrix1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                4, 9,
+                8, 3
+            },
+            2, 2);
+    transposeSquareMatrix(&m);
+    matrix expectedResult = createMatrixFromArray(
+            (int[]) {
+                4, 8,
+                9, 3
+            },
+            2, 2);
+
+    assert(areTwoMatricesEqual(&m, &expectedResult));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedResult);
+}
+
+void test_transposeSquareMatrix2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                1, 3, 1, 1,
+                5, 6, 4, 1,
+                9, 8, 7, 5,
+                4, 3, 1, 2
+            },
+            4, 4);
+    transposeSquareMatrix(&m);
+    matrix expectedResult = createMatrixFromArray(
+            (int[]) {
+                1, 5, 9, 4,
+                3, 6, 8, 3,
+                1, 4, 7, 1,
+                1, 1, 5, 2
+            },
+            4, 4);
+
+    assert(areTwoMatricesEqual(&m, &expectedResult));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedResult);
+}
+
+void tests_transposeSquareMatrix() {
+    test_transposeSquareMatrix_differentNumOfRowsAndCols();
+    test_transposeSquareMatrix1();
+    test_transposeSquareMatrix2();
+}
+
+//======================================================================================================================
+
+void test_getMinValuePos_twoMins() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                2, 2,
+                1, 1
+            },
+            2, 2);
+    position p = getMinValuePos(&m);
+    position expectedResult = {1, 0};
+
+    assert(p.rowIndex == expectedResult.rowIndex);
+    assert(p.colIndex == expectedResult.colIndex);
+    freeMemMatrix(&m);
+}
+
+void test_getMinValuePos1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                4, 8,
+                9, 3
+            },
+            2, 2);
+    position p = getMinValuePos(&m);
+    position expectedResult = {1, 1};
+
+    assert(p.rowIndex == expectedResult.rowIndex);
+    assert(p.colIndex == expectedResult.colIndex);
+    freeMemMatrix(&m);
+}
+
+void tests_getMinValuePos() {
+    test_getMinValuePos_twoMins();
+    test_getMinValuePos1();
+}
+
+//======================================================================================================================
+
+void test_getMaxValuePos_twoMax() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    9, 3,
+                    3, 9
+            },
+            2, 2);
+    position p = getMaxValuePos(&m);
+    position expectedResult = {0, 1};
+
+    assert(p.rowIndex == expectedResult.rowIndex);
+    assert(p.colIndex == expectedResult.colIndex);
+    freeMemMatrix(&m);
+}
+
+void test_getMaxValuePos1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    4, 8,
+                    9, 3
+            },
+            2, 2);
+    position p = getMaxValuePos(&m);
+    position expectedResult = {1, 0};
+
+    assert(p.rowIndex == expectedResult.rowIndex);
+    assert(p.colIndex == expectedResult.colIndex);
+    freeMemMatrix(&m);
+}
+
+void tests_getMaxValuePos() {
+    test_getMaxValuePos_twoMax();
+    test_getMaxValuePos1();
+}
+
+//======================================================================================================================
 //Global test matrix:
 
 void test_matrix() {

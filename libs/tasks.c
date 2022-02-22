@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 #include <malloc.h>
 #include <assert.h>
 #include "data_structures/matrix/matrix.c"
@@ -75,6 +76,15 @@ int max(int a, int b) {
 int min2(int a, int b) {
     int m = a < b ? a : b;
     return m;
+}
+
+float getDistance(int *a, int n) {
+    float distance = 0;
+    for (int i = 0; i < n; ++i) {
+        distance += a[i] * a[i];
+    }
+
+    return sqrt(distance);
 }
 
 
@@ -191,8 +201,8 @@ int getMinInArea(matrix *m) {
 }
 
 //9. Дано 𝑛 точек в 𝑚-мерном пространстве. Упорядочить точки по неубыванию их расстояний до начала координат
-void sortByDistances(matrix m) {
-
+void sortByDistances(matrix *m) {
+    insertionSortRowsMatrixByRowCriteria(m, getDistance);
 }
 
 /*10. Определить количество классов эквивалентных строк данной прямоугольной матрицы. Строки считать

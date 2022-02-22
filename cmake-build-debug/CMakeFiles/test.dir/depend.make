@@ -6,6 +6,8 @@ CMakeFiles/test.dir/libs/tasks.c.obj: \
  ../libs/data_structures/matrix/matrix.h \
  ../libs/tasks.c
 CMakeFiles/test.dir/libs/tests.c.obj: \
+ ../libs/data_structures/matrix/matrix.c \
  ../libs/data_structures/matrix/matrix.h \
  ../libs/data_structures/vector/vector.h \
+ ../libs/tasks.c \
  ../libs/tests.c
