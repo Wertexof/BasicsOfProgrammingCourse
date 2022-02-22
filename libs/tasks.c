@@ -143,6 +143,28 @@ static bool hasAllNonDescendingRows(const matrix *m) {
     return true;
 }
 
+int countValues(const int *a, int n, int value) {
+    int count = 0;
+
+    for (int i = 0; i < n; ++i) {
+        if (a[i] == value)
+            count++;
+    }
+
+    return count;
+}
+
+int countZeroRows(matrix *m) {
+    int rows = m->nRows;
+    int cols = m->nCols;
+    int counter = 0;
+
+    for (int i = 0; i < rows; ++i)
+        counter += countValues(m->values[i], cols, 0) == cols;
+
+    return counter;
+}
+
 
 
 /*1. Дана квадратная матрица, все элементы которой различны. Поменять местами
@@ -325,4 +347,22 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
         count += hasAllNonDescendingRows(&ms[i]);
 
     return count;
+}
+
+//14. Дан массив целочисленных матриц. Вывести матрицы, имеющие наибольшее число нулевых строк
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
+    int *matricesZeroRows = (int *) malloc(sizeof(int) * nMatrix);
+
+    for (int i = 0; i < nMatrix; ++i)
+        matricesZeroRows[i] = countZeroRows(&ms[i]);
+
+    int zeroRowsMax = getMax(matricesZeroRows, nMatrix);
+
+    for (int i = 0; i < nMatrix; ++i)
+        if (zeroRowsMax == matricesZeroRows[i]) {
+            outputMatrix(&ms[i]);
+            printf("\n");
+        }
+
+    free(matricesZeroRows);
 }
