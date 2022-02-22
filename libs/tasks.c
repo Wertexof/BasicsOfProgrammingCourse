@@ -127,6 +127,22 @@ position getLeftMin(matrix *m) {
     return min;
 }
 
+static bool isNonDescendingSorted(const int *const a, const int n) {
+    for (int i = 1; i < n; ++i)
+        if (a[i - 1] > a[i])
+            return false;
+    return true;
+}
+
+static bool hasAllNonDescendingRows(const matrix *m) {
+    int rows = m->nRows;
+
+    for (int i = 0; i < rows; ++i)
+        if (!isNonDescendingSorted(m->values[i], rows))
+            return false;
+    return true;
+}
+
 
 
 /*1. Дана квадратная матрица, все элементы которой различны. Поменять местами
@@ -299,4 +315,14 @@ void swapPenultimateRow(matrix *m, int n) {
     for (int j = 0; j < m->nCols; ++j) {
         m->values[m->nRows - 2][j] = m->values[j][colOfFirstMin.colIndex];
     }
+}
+
+/*13. Дан массив квадратных матриц. Определить число матриц, строки которых
+                                      упорядочены по неубыванию элементов*/
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
+    int count = 0;
+    for (int i = 0; i < nMatrix; ++i)
+        count += hasAllNonDescendingRows(&ms[i]);
+
+    return count;
 }

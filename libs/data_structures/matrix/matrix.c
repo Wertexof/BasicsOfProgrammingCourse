@@ -4,17 +4,17 @@
 #include <malloc.h>
 #include "matrix.h"
 
-int swap(int *a, int *b) {
-    int t = *a;
-    *a = *b;
-    *b = t;
-}
-
 void badAlloc(const int *a) {
     if (a == NULL) {
         fprintf(stderr, "bad alloc ");
         exit(1);
     }
+}
+
+int swap(int *a, int *b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
 }
 
 matrix getMemMatrix(int nRows, int nCols) {
