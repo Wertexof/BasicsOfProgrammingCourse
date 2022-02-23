@@ -178,6 +178,14 @@ int getMatrixNorm(matrix *m) {
     return absMax;
 }
 
+bool isEqualOrMore(const int *a, const size_t n, const int x) {
+    for (int i = 0; i < n; i++) {
+        if (a[i] >= x)
+            return true;
+    }
+    return false;
+}
+
 
 
 /*1. Дана квадратная матрица, все элементы которой различны. Поменять местами
@@ -399,7 +407,16 @@ void printOfMatricesInTheMinNorm(matrix *ms, int nMatrix) {
 /*16. Дана матрица. Определить 𝑘 – количество "особых" элементов данной матрицы, считая элемент
           "особым" если в строке слева от него находятся меньшие элементы, а справа – большие*/
 int getNSpecialElement2(matrix *m) {
+    int countSpecialEl = 0;
+    for (int i = 0; i < m->nRows; ++i) {
+        for (int j = 0; j < m->nCols; ++j) {
+            if (!isEqualOrMore(m->values[i], j, m->values[i][j]) &&
+                !isEqualOrLess(m->values[i] + j + 1, m->nCols - j - 1, m->values[i][j]))
+                countSpecialEl++;
+        }
+    }
 
+    return countSpecialEl;
 }
 
 /*18. Дана вещественная квадратная матрица, все элементы которой различны. Найти скалярное произведение строки,
