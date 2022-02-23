@@ -55,6 +55,7 @@ long long getSum(int *a, int n) {
     for (int i = 0; i < n; ++i) {
         sum += a[i];
     }
+
     return sum;
 }
 
@@ -65,6 +66,7 @@ bool isUnique(long long int *a, int n) {
                 return 0;
         }
     }
+
     return 1;
 }
 
@@ -111,7 +113,6 @@ int countNUnique(long long int *a, int n) {
 
 position getLeftMin(matrix *m) {
     position min = {0, 0};
-
     for (int i = 0; i < m->nRows; ++i) {
         for (int j = 0; j < m->nCols; ++j) {
             if (m->values[i][j] < m->values[min.rowIndex][min.colIndex]) {
@@ -136,7 +137,6 @@ static bool isNonDescendingSorted(const int *const a, const int n) {
 
 static bool hasAllNonDescendingRows(const matrix *m) {
     int rows = m->nRows;
-
     for (int i = 0; i < rows; ++i)
         if (!isNonDescendingSorted(m->values[i], rows))
             return false;
@@ -145,7 +145,6 @@ static bool hasAllNonDescendingRows(const matrix *m) {
 
 int countValues(const int *a, int n, int value) {
     int count = 0;
-
     for (int i = 0; i < n; ++i) {
         if (a[i] == value)
             count++;
@@ -183,8 +182,27 @@ bool isEqualOrMore(const int *a, const size_t n, const int x) {
         if (a[i] >= x)
             return true;
     }
+
     return false;
 }
+
+bool isEqualOrLess(const int *a, const size_t n, const int x) {
+    for (int i = 0; i < n; i++) {
+        if (a[i] <= x)
+            return true;
+    }
+
+    return false;
+}
+
+long long getScalarProduct(int *a, int *b, int n) {
+    long long product = 0;
+    for (int i = 0; i < n; i++)
+        product += a[i] * b[i];
+    return product;
+}
+
+//=======================================================TASKS==========================================================
 
 
 
@@ -220,6 +238,7 @@ void transposeIfMatrixHasEqualSumOfRows(matrix *m) {
     for (int i = 0; i < m->nRows; ++i) {
         arraySumsOfRowElements[i] = getSum(m->values[i], m->nCols);
     }
+
     if (isUnique(arraySumsOfRowElements, m->nRows))
         transposeSquareMatrix(m);
 }
@@ -421,6 +440,20 @@ int getNSpecialElement2(matrix *m) {
 
 /*18. Дана вещественная квадратная матрица, все элементы которой различны. Найти скалярное произведение строки,
                             в которой находится наибольший элемент матрицы, на столбец с наименьшим элементом*/
-long long getSpecialScalarProduct(matrix *m, int n) {
+long long getScalarProductRowAndCol(matrix *m, int i, int j) {
+    int *col = (int *) malloc(sizeof(int) * m->nRows);
+    for (int k = 0; k < m->nRows; k++)
+        col[k] = m->values[k][j];
+    long long res = getScalarProduct(m->values[i], col, m->nCols);
 
+    free(col);
+
+    return res;
+}
+
+long long getSpecialScalarProduct(matrix *m) {
+    position maxPosRow = getMaxValuePos(m);
+    position minPosCol = getMinValuePos(m);
+
+    return getScalarProductRowAndCol(m, maxPosRow.rowIndex, minPosCol.colIndex);
 }

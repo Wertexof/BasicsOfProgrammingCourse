@@ -211,6 +211,7 @@ position getMaxValuePos(matrix *m) {
 matrix createMatrixFromArray(const int *a, int nRows, int nCols) {
     matrix m = getMemMatrix(nRows, nCols);
     int k = 0;
+
     for (int i = 0; i < nRows; i++)
         for (int j = 0; j < nCols; j++)
             m.values[i][j] = a[k++];
@@ -220,6 +221,7 @@ matrix createMatrixFromArray(const int *a, int nRows, int nCols) {
 matrix *createMatrixArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols) {
     matrix *ms = getMemArrayOfMatrices(nMatrices, nRows, nCols);
     int l = 0;
+
     for (int k = 0; k < nMatrices; k++)
         for (int i = 0; i < nRows; i++)
             for (int j = 0; j < nCols; j++)
