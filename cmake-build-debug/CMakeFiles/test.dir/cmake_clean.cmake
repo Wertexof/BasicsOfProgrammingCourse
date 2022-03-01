@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/test.dir/libs/data_structures/string/string_.c.obj"
   "CMakeFiles/test.dir/libs/tasks.c.obj"
   "CMakeFiles/test.dir/libs/tests.c.obj"
   "libtest.a"

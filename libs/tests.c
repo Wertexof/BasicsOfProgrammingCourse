@@ -348,16 +348,16 @@ void tests_freeMemMatrix() {
 void test_swapRows_oneCol() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1,
-                2,
-                3
+                    1,
+                    2,
+                    3
             },
             3, 1);
     matrix expectedResult = createMatrixFromArray(
             (int[]) {
-                3,
-                2,
-                1
+                    3,
+                    2,
+                    1
             },
             3, 1);
     swapRows(&m, 0, 2);
@@ -423,12 +423,12 @@ void tests_swapRows() {
 void test_swapCols_oneRow() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1, 9, 7
+                    1, 9, 7
             },
             1, 3);
     matrix expectedResult = createMatrixFromArray(
             (int[]) {
-                9, 1, 7
+                    9, 1, 7
             },
             1, 3);
     swapCols(&m, 0, 1);
@@ -493,17 +493,17 @@ void tests_swapCols() {
 void test_insertionSortRowsMatrixByRowCriteria_rectangularMatrix() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                2, 9,
-                1, 4,
-                3, 7
+                    2, 9,
+                    1, 4,
+                    3, 7
             },
             3, 2);
     insertionSortRowsMatrixByRowCriteria(&m, getSum);
     matrix expectedResult = createMatrixFromArray(
             (int[]) {
-                2, 9,
-                1, 4,
-                3, 7
+                    2, 9,
+                    1, 4,
+                    3, 7
             },
             3, 2);
 
@@ -542,17 +542,17 @@ void tests_insertionSortRowsMatrixByRowCriteria() {
 void test_insertionSortColsMatrixByColCriteria_rectangularMatrix() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1, 4,
-                0, 9,
-                7, 8
+                    1, 4,
+                    0, 9,
+                    7, 8
             },
             3, 2);
     insertionSortColsMatrixByColCriteria(&m, getSum);
     matrix expectedResult = createMatrixFromArray(
             (int[]) {
-                0, 0,
-                9, 0,
-                1, 4
+                    0, 0,
+                    9, 0,
+                    1, 4
             },
             3, 2);
 
@@ -564,15 +564,15 @@ void test_insertionSortColsMatrixByColCriteria_rectangularMatrix() {
 void test_insertionSortColsMatrixByColCriteria1() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                8, 4,
-                5, 9
+                    8, 4,
+                    5, 9
             },
             2, 2);
     insertionSortColsMatrixByColCriteria(&m, getSum);
     matrix expectedResult = createMatrixFromArray(
             (int[]) {
-                8, 4,
-                5, 9
+                    8, 4,
+                    5, 9
             },
             2, 2);
 
@@ -584,15 +584,15 @@ void test_insertionSortColsMatrixByColCriteria1() {
 void test_insertionSortColsMatrixByColCriteria2() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1, 5,
-                4, 8
+                    1, 5,
+                    4, 8
             },
             2, 2);
     insertionSortColsMatrixByColCriteria(&m, getSum);
     matrix expectedResult = createMatrixFromArray(
             (int[]) {
-                1, 5,
-                4, 8
+                    1, 5,
+                    4, 8
             },
             2, 2);
 
@@ -656,9 +656,9 @@ void tests_isSquareMatrix() {
 void test_isEMatrix_notEMatrix() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1, 0, 0,
-                0, 1, 0,
-                0, 1, 1
+                    1, 0, 0,
+                    0, 1, 0,
+                    0, 1, 1
             },
             3, 3);
 
@@ -669,9 +669,9 @@ void test_isEMatrix_notEMatrix() {
 void test_isEMatrix1() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1, 0, 0,
-                0, 1, 0,
-                0, 0, 1
+                    1, 0, 0,
+                    0, 1, 0,
+                    0, 0, 1
             },
             3, 3);
 
@@ -703,9 +703,9 @@ void tests_isEMatrix() {
 void test_isSymmetricMatrix_notSymmetricMatrix() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1, 4, 9,
-                8, 9, 6,
-                4, 1, 8
+                    1, 4, 9,
+                    8, 9, 6,
+                    4, 1, 8
             },
             3, 3);
 
@@ -716,9 +716,9 @@ void test_isSymmetricMatrix_notSymmetricMatrix() {
 void test_isSymmetricMatrix1() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1, 3, 4,
-                3, 1, 2,
-                4, 2, 1
+                    1, 3, 4,
+                    3, 1, 2,
+                    4, 2, 1
             },
             3, 3);
 
@@ -729,9 +729,9 @@ void test_isSymmetricMatrix1() {
 void test_isSymmetricMatrix2() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                3, 3, 3,
-                3, 0, 3,
-                3, 3, 3
+                    3, 3, 3,
+                    3, 0, 3,
+                    3, 3, 3
             },
             3, 3);
 
@@ -770,15 +770,15 @@ void test_transposeSquareMatrix_differentNumOfRowsAndCols() {
 void test_transposeSquareMatrix1() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                4, 9,
-                8, 3
+                    4, 9,
+                    8, 3
             },
             2, 2);
     transposeSquareMatrix(&m);
     matrix expectedResult = createMatrixFromArray(
             (int[]) {
-                4, 8,
-                9, 3
+                    4, 8,
+                    9, 3
             },
             2, 2);
 
@@ -790,19 +790,19 @@ void test_transposeSquareMatrix1() {
 void test_transposeSquareMatrix2() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                1, 3, 1, 1,
-                5, 6, 4, 1,
-                9, 8, 7, 5,
-                4, 3, 1, 2
+                    1, 3, 1, 1,
+                    5, 6, 4, 1,
+                    9, 8, 7, 5,
+                    4, 3, 1, 2
             },
             4, 4);
     transposeSquareMatrix(&m);
     matrix expectedResult = createMatrixFromArray(
             (int[]) {
-                1, 5, 9, 4,
-                3, 6, 8, 3,
-                1, 4, 7, 1,
-                1, 1, 5, 2
+                    1, 5, 9, 4,
+                    3, 6, 8, 3,
+                    1, 4, 7, 1,
+                    1, 1, 5, 2
             },
             4, 4);
 
@@ -822,8 +822,8 @@ void tests_transposeSquareMatrix() {
 void test_getMinValuePos_twoMins() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                2, 2,
-                1, 1
+                    2, 2,
+                    1, 1
             },
             2, 2);
     position p = getMinValuePos(&m);
@@ -837,8 +837,8 @@ void test_getMinValuePos_twoMins() {
 void test_getMinValuePos1() {
     matrix m = createMatrixFromArray(
             (int[]) {
-                4, 8,
-                9, 3
+                    4, 8,
+                    9, 3
             },
             2, 2);
     position p = getMinValuePos(&m);
@@ -909,4 +909,155 @@ void test_matrix() {
     tests_transposeSquareMatrix();
     tests_getMinValuePos();
     tests_getMaxValuePos();
+}
+
+//STRING_TESTS==========================================================================================================
+
+#define ASSERT_STRING ( expected , got ) assertString ( expected , got , \
+2 __FILE__ , __FUNCTION__ , __LINE__ )
+
+void assertString(const char *expected, char *got, char const *fileName, char const *funcName, int line) {
+    if (strcmp_(expected, got)) {
+        fprintf(stderr, " File %s\n", fileName);
+        fprintf(stderr, "%s - failed on line %d\n", funcName, line);
+        fprintf(stderr, " Expected : \"%s \"\n", expected);
+        fprintf(stderr, "Got: \"%s\"\n\n", got);
+    } else
+        fprintf(stderr, "%s - OK\n", funcName);
+}
+
+
+void test_findWithIndex() {
+    char str[] = "38s9ewer419slv1t";
+    int lenghtStr = 16;
+    char *res = &str[6];
+
+    assert(find(str, str + lenghtStr, 'w') == res);
+}
+
+void test_find1() {
+    char str[] = "%&dript24@";
+    int lenghtStr = 6;
+    char *res = str + lenghtStr;
+
+    assert(find(str, str + lenghtStr, 't') == res);
+}
+
+void test_find() {
+    test_findWithIndex();
+    test_find1();
+}
+
+//======================================================================================================================
+
+void test_findNonSpaceOnlySpaces() {
+    char str[] = "    ";
+    char *res = &str[4];
+
+    assert(findNonSpace(str) == res);
+}
+
+void test_findNonSpacesInTheMiddle() {
+    char str[] = "69  trq";
+    char *res = &str[2];
+
+    assert(findNonSpace(str) == res);
+}
+
+void test_findNonSpace1() {
+    char str[] = "   90schw@rz0";
+    char *res = &str[3];
+
+    assert(findNonSpace(str) == res);
+}
+
+void test_findNonSpace() {
+    test_findNonSpaceOnlySpaces();
+    test_findNonSpacesInTheMiddle();
+    test_findNonSpace1();
+}
+
+//======================================================================================================================
+
+void test_findSpaceWithoutSpaces() {
+    char str[] = "o2i3h2tr9";
+    char *res = &str[10];
+
+    assert(findSpace(str) == res);
+}
+
+void test_findSpace1() {
+    char str[] = "dr 98elsui ";
+    char *res = &str[2];
+
+    assert(findSpace(str) == res);
+}
+
+void test_findSpace() {
+    test_findSpaceWithoutSpaces();
+    test_findSpace1();
+}
+
+//======================================================================================================================
+
+void test_findSpaceReverseInTheEnd() {
+    char str[] = "rgerp ";
+    char *res = &str[5];
+    int lenghtStr = 6;
+
+    assert(findSpaceReverse(str + lenghtStr - 1, str) == res);
+}
+
+void test_findSpaceReverseAtTheBeginning() {
+    char str[] = " wunv9u32";
+    char *res = &str[0];
+    int lenghtStr = 8;
+
+    assert(findSpaceReverse(str + lenghtStr - 1, str) == res);
+}
+
+void test_findSpaceReverseWithoutSpaces() {
+    char str[] = "wunv9u32";
+    char *res = str;
+    int lenghtStr = 8;
+
+    assert(findSpaceReverse(str + lenghtStr - 1, str) == res);
+}
+
+void test_findSpaceReverse1() {
+    char str[] = "wf rge rp ";
+    char *res = &str[9];
+    int lenghtStr = 10;
+
+    assert(findSpaceReverse(str + lenghtStr - 1, str) == res);
+}
+
+void test_findSpaceReverse() {
+    test_findSpaceReverseInTheEnd();
+    test_findSpaceReverseAtTheBeginning();
+    test_findSpaceReverseWithoutSpaces();
+    test_findSpaceReverse1();
+}
+
+//======================================================================================================================
+
+void test_findNonSpaceReverse1() {
+    char str[] = "\t \ d9uu";
+    char *res = &str[3];
+    int lenghtStr = 10;
+
+    assert(findNonSpaceReverse(str + lenghtStr - 1, str) == res);
+}
+
+void test_findNonSpaceReverse2() {
+    char str[] = "    ";
+    char *res = str;
+    int lenghtStr = 4;
+
+    assert(findNonSpaceReverse(str + lenghtStr - 1, str) == res);
+}
+
+void test_findNonSpaceReverse() {
+    test_findNonSpaceReverse1();
+    test_findNonSpaceReverse2();
 }

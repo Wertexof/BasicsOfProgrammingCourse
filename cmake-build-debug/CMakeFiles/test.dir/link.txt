@@ -1,2 +1,2 @@
-C:\PROGRA~1\JETBRA~1\CLION2~1.3\mingw64\bin\ar.exe qc libtest.a CMakeFiles/test.dir/libs/tasks.c.obj CMakeFiles/test.dir/libs/tests.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.3\mingw64\bin\ar.exe qc libtest.a CMakeFiles/test.dir/libs/tasks.c.obj CMakeFiles/test.dir/libs/tests.c.obj CMakeFiles/test.dir/libs/data_structures/string/string_.c.obj
 C:\PROGRA~1\JETBRA~1\CLION2~1.3\mingw64\bin\ranlib.exe libtest.a

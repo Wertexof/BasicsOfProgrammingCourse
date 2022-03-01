@@ -110,6 +110,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/string/string_.c">
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/string/string_.h">
+			<Option target="test"/>
+		</Unit>
 		<Unit filename="C:/Users/perso/CLionProjects/vectors_project/libs/tasks.c">
 			<Option target="test"/>
 		</Unit>

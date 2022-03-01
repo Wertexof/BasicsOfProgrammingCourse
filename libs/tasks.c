@@ -5,6 +5,8 @@
 #include <assert.h>
 #include "data_structures/matrix/matrix.c"
 #include "data_structures/matrix/matrix.h"
+#include "data_structures/string/string_.c"
+#include "data_structures/string/string_.h"
 
 int getMin(const int *a, int n) {
     int minElement = a[0];
@@ -203,7 +205,7 @@ long long getScalarProduct(int *a, int *b, int n) {
 }
 
 //=======================================================TASKS==========================================================
-
+//MATRIX_TASKS
 
 
 /*1. Дана квадратная матрица, все элементы которой различны. Поменять местами
@@ -456,4 +458,35 @@ long long getSpecialScalarProduct(matrix *m) {
     position minPosCol = getMinValuePos(m);
 
     return getScalarProductRowAndCol(m, maxPosRow.rowIndex, minPosCol.colIndex);
+}
+
+
+//======================================================================================================================
+//STRING_TASKS
+
+//№1.
+void removeNonLetters(char *s) {
+    char *endSource = getEndOfString(s);
+    char *destination = copyIf(s, endSource, s, isGraph);
+    *destination = '\0 ';
+}
+
+//№2.
+void removeAdjacentEqualLetters(char *s) {
+    if (*s == '\0')
+        return;
+    char *lastWriten = s;
+    s++;
+
+    while (*s) {
+        if (*lastWriten != *s) {
+            lastWriten++;
+            memcpy(lastWriten, s, sizeof(char));
+        }
+
+        s++;
+    }
+
+    lastWriten++;
+    *lastWriten = '\0';
 }
