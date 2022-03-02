@@ -74,7 +74,7 @@ void popVectorBack(vector *v) {
         v->size--;
 }
 
-int* atVector(vector *v, size_t index) {
+int *atVector(vector *v, size_t index) {
     if (index < v->size)
         return v->data + index;
     else {
@@ -83,10 +83,10 @@ int* atVector(vector *v, size_t index) {
     }
 }
 
-int* back(vector *v) {
+int *back(vector *v) {
     return atVector(v, v->size - 1);
 }
 
-int* front(vector *v) {
+int *front(vector *v) {
     return atVector(v, 0);
 }

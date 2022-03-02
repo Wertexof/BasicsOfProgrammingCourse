@@ -6,38 +6,51 @@
 #include <malloc.h>
 
 typedef struct vector {
-    int *data;
-    size_t size;
-    size_t capacity;
+    int *data; //указатель на нулевой элемент вектора
+    size_t size; //размер вектора
+    size_t capacity; //вместимость вектора
 } vector;
 
-void badAlloc(); //функция вывода сообщения об ошибке
+//функция вывода сообщения об ошибке
+void badAlloc();
 
-vector createVector(size_t n); //возвращает структуру-дескриптор вектор из n значений
+//возвращает структуру-дескриптор вектор из n значений
+vector createVector(size_t n);
 
-void reserveVector(vector *v, size_t newCapacity); /*изменяет количество памяти, выделенное под хранение элементов
-                                                                                                         вектора*/
+//изменяет количество памяти, выделенное под хранение элементов вектора
+void reserveVector(vector *v, size_t newCapacity);
 
-void clearVector(vector *v); //удаляет элементы из контейнера, но не освобождает выделенную память
+//удаляет элементы из контейнера, но не освобождает выделенную память
+void clearVector(vector *v);
 
-void shrinkVectorToFit(vector *v); //освобождает память, выделенную под неиспользуемые элементы
+//освобождает память, выделенную под неиспользуемые элементы
+void shrinkVectorToFit(vector *v);
 
-void deleteVector(vector *v); //освобождает память, выделенную вектору
+//освобождает память, выделенную вектору
+void deleteVector(vector *v);
 
-bool isVectorEmpty(const vector *v); //проверка на то, является ли вектор пустым
+//проверка на то, является ли вектор пустым
+bool isVectorEmpty(const vector *v);
 
-bool isVectorFull(const vector *v); //проверка на то, является ли вектор полным
+//проверка на то, является ли вектор полным
+bool isVectorFull(const vector *v);
 
-int getVectorValue(vector *v, size_t i); //возвращает i-ый элемент вектора v
+//возвращает i-ый элемент вектора v
+int getVectorValue(vector *v, size_t i);
 
-void pushVectorBack(vector *v, int x); //добавляет элемент x в конец вектора v
+//добавляет элемент x в конец вектора v
+void pushVectorBack(vector *v, int x);
 
-void popVectorBack(vector *v); //удаляет последний элемент из вектора
+//удаляет последний элемент из вектора
+void popVectorBack(vector *v);
 
-int* atVector(vector *v, size_t index); //возвращает указатель на index-ый элемент вектора
+//возвращает указатель на index-ый элемент вектора
+int *atVector(vector *v, size_t index);
 
-int* back(vector *v); //возвращает указатель на последний элемент вектора
+//возвращает указатель на последний элемент вектора
+int *back(vector *v);
 
-int* front(vector *v); //возвращает указатель на первый элемент вектора
+//возвращает указатель на первый элемент вектора
+int *front(vector *v);
 
 #endif

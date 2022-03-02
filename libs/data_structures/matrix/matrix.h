@@ -14,60 +14,74 @@ typedef struct position {
     int colIndex;
 } position;
 
-int swap(int *a, int *b); //функция swap для обмена значений двух переменных
+//функция swap для обмена значений двух переменных
+int swap(int *a, int *b);
 
-void badAlloc(const int *a); //функция вывода ошибки
+//функция вывода ошибки
+void badAlloc(const int *a);
 
-matrix getMemMatrix(int nRows, int nCols); //размещает в динамической памяти матрицу размером nRows на nCols
+//размещает в динамической памяти матрицу размером nRows на nCols
+matrix getMemMatrix(int nRows, int nCols);
 
-matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols); /*размещает в динамической памяти массив из
-                                                                     nMatrices матриц размером nRows на nCols*/
+//размещает в динамической памяти массив из nMatrices матриц размером nRows на nCols
+matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
 
-void freeMemMatrix(matrix *m); //освобождает память, выделенную под хранение матрицы m
+//освобождает память, выделенную под хранение матрицы m
+void freeMemMatrix(matrix *m);
 
-void freeMemMatrices(matrix *ms, int nMatrices); /*освобождает память, выделенную под хранение массива ms из
-                                                                                          nMatrices матриц*/
+//освобождает память, выделенную под хранение массива ms из nMatrices матриц
+void freeMemMatrices(matrix *ms, int nMatrices);
 
-void inputMatrix(matrix *m); //ввод матрицы m
+//ввод матрицы m
+void inputMatrix(matrix *m);
 
-void inputMatrices(matrix *ms, int nMatrices); //ввод массива из nMatrices матриц, хранящейся по адресу ms
+//ввод массива из nMatrices матриц, хранящейся по адресу ms
+void inputMatrices(matrix *ms, int nMatrices);
 
-void outputMatrix(matrix *m); //вывод матрицы m
+//вывод матрицы m
+void outputMatrix(matrix *m);
 
-void outputMatrices(matrix *ms, int nMatrices); //вывод массива из nMatrices матриц, хранящейся по адресу ms
+//вывод массива из nMatrices матриц, хранящейся по адресу ms
+void outputMatrices(matrix *ms, int nMatrices);
 
-void swapRows(matrix *m, int i1, int i2); //обмен строк с порядковыми номерами i1 и i2 в матрице m
+//обмен строк с порядковыми номерами i1 и i2 в матрице m
+void swapRows(matrix *m, int i1, int i2);
 
-void swapCols(matrix *m, int j1, int j2); //обмен столбцов с порядковыми номерами j1 и j2 в матрице m
+//обмен столбцов с порядковыми номерами j1 и j2 в матрице m
+void swapCols(matrix *m, int j1, int j2);
 
-void insertionSortRowsMatrixByRowCriteria(matrix *m, int (*criteria)(int *, int)); /*выполняет сортировку вставками строк
-                                               матрицы m по неубыванию значения функции criteria применяемой для строк*/
+//выполняет сортировку вставками строк матрицы m по неубыванию значения функции criteria применяемой для строк
+void insertionSortRowsMatrixByRowCriteria(matrix *m, int (*criteria)(int *, int));
 
-void insertionSortColsMatrixByColCriteria(matrix *m, int (*criteria)(int *, int)); /*выполняет сортировку вставками
-                             столбцов матрицы m по неубыванию значения функции criteria применяемой для столбцов*/
+//выполняет сортировку вставками столбцов матрицы m по неубыванию значения функции criteria применяемой для столбцов
+void insertionSortColsMatrixByColCriteria(matrix *m, int (*criteria)(int *, int));
 
-bool isSquareMatrix(matrix *m); /*возвращает значение ’истина’, если матрица m является квадратной,
-                                                                       ложь – в противном случае*/
+//возвращает значение ’истина’, если матрица m является квадратной, ложь – в противном случае
+bool isSquareMatrix(matrix *m);
 
-bool areTwoMatricesEqual(matrix *m1, matrix *m2); /*возвращает значение ’истина’, если матрицы m1 и m2 равны,
-                                                                             ложь – в противном случае*/
+//возвращает значение ’истина’, если матрицы m1 и m2 равны, ложь – в противном случае
+bool areTwoMatricesEqual(matrix *m1, matrix *m2);
 
-bool isEMatrix(matrix *m); //возвращает значение ’истина’, если матрица m является единичной, ложь – в противном случае
+//возвращает значение ’истина’, если матрица m является единичной, ложь – в противном случае
+bool isEMatrix(matrix *m);
 
-bool isSymmetricMatrix(matrix *m); /*возвращает значение ’истина’, если матрица m является симметричной,
-                                                                            ложь – в противном случае*/
+//возвращает значение ’истина’, если матрица m является симметричной, ложь – в противном случае
+bool isSymmetricMatrix(matrix *m);
 
-void transposeSquareMatrix(matrix *m); //транспонирует квадратную матрицу m
+//транспонирует квадратную матрицу m
+void transposeSquareMatrix(matrix *m);
 
-position getMinValuePos(matrix *m); //возвращает позицию минимального элемента матрицы m
+//возвращает позицию минимального элемента матрицы m
+position getMinValuePos(matrix *m);
 
-position getMaxValuePos(matrix *m); //возвращает позицию максимального элемента матрицы m
+//возвращает позицию максимального элемента матрицы m
+position getMaxValuePos(matrix *m);
 
-matrix createMatrixFromArray(const int *a, int nRows, int nCols); /*возвращает матрицу, размера nRows на nCols,
-построенного из элементов массива a, размещенную в динамической памяти*/
+//возвращает матрицу, размера nRows на nCols, построенного из элементов массива a, размещенную в динамической памяти
+matrix createMatrixFromArray(const int *a, int nRows, int nCols);
 
+//возвращает указатель на нулевую матрицу массива из nMatrices матриц, размещенных в динамической памяти,
+//построенных из элементов массива a
 matrix *createMatrixArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols);
-/*возвращает указатель на нулевую матрицу массива из nMatrices матриц, размещенных в динамической памяти,
-построенных из элементов массива a*/
 
 #endif

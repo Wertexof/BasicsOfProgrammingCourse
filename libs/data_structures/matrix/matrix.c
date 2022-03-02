@@ -4,13 +4,6 @@
 #include <malloc.h>
 #include "matrix.h"
 
-void badAlloc(const int *a) {
-    if (a == NULL) {
-        fprintf(stderr, "bad alloc ");
-        exit(1);
-    }
-}
-
 int swap(int *a, int *b) {
     int t = *a;
     *a = *b;
