@@ -22,6 +22,26 @@ C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/matrix/matrix.
 stdbool.h
 -
 
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/string/string_.c
+string_.h
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/string/string_.h
+stdio.h
+-
+memory.h
+-
+ctype.h
+-
+
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/string/string_.h
+stdio.h
+-
+stdbool.h
+-
+memory.h
+-
+ctype.h
+-
+
 C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/vector/vector.h
 stdio.h
 -
@@ -45,6 +65,10 @@ data_structures/matrix/matrix.c
 C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/matrix/matrix.c
 data_structures/matrix/matrix.h
 C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/matrix/matrix.h
+data_structures/string/string_.c
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/string/string_.c
+data_structures/string/string_.h
+C:/Users/perso/CLionProjects/vectors_project/libs/data_structures/string/string_.h
 
 C:/Users/perso/CLionProjects/vectors_project/libs/tests.c
 assert.h

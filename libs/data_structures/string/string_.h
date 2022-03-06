@@ -1,8 +1,20 @@
 #ifndef VECTORS_PROJECT_STRING__H
 #define VECTORS_PROJECT_STRING__H
+#define MAX_STRING_SIZE 100
+#define MAX_N_WORDS_IN_STRING 100
+#define MAX_WORD_SIZE 20
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <memory.h>
+#include <ctype.h>
+
+static char _stringBuffer[MAX_STRING_SIZE + 1];
+
+typedef struct WordDescriptor {
+    char *begin; //позиция начала слова
+    char *end; //позиция первого символа, после последнего символа слова
+} WordDescriptor;
 
 //Возвращает количество символов в строке (не считая ноль-символ)
 size_t strlen_(const char *begin);
@@ -56,5 +68,12 @@ char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
 
 //Возвращает конец строки
 char *getEndOfString(char *str);
+
+//вернёт значение 0, если слово не было считано, в противном
+//случае будет возвращено значение 1
+int getWord(char *beginSearch, WordDescriptor *word);
+
+//считывает слова с конца строки
+bool getWordReverse(char *rbegin, char *rend, WordDescriptor *word);
 
 #endif

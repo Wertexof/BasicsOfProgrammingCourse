@@ -467,7 +467,7 @@ long long getSpecialScalarProduct(matrix *m) {
 //№1.
 void removeNonLetters(char *s) {
     char *endSource = getEndOfString(s);
-    char *destination = copyIf(s, endSource, s, isGraph);
+    char *destination = copyIf(s, endSource, s, isgraph);
     *destination = '\0 ';
 }
 
@@ -491,7 +491,6 @@ void removeAdjacentEqualLetters(char *s) {
     *lastWriten = '\0';
 }
 
-//№3.
 void removeExtraSpaces(char *s) {
     if (*s == '\0')
         return;
@@ -507,6 +506,19 @@ void removeExtraSpaces(char *s) {
 
         s++;
     }
-    
+
     *++(lastWriten) = '\0';
+}
+
+//№3.
+bool getWordReverse(char *rbegin, char *rend, WordDescriptor *word) {
+    word->begin = findNonSpaceReverse(rbegin, rend);
+    if (*word->begin == '\0 ')
+        return false;
+
+    word->end = findSpaceReverse(rbegin, rend);
+    word->begin++;
+    word->end++;
+
+    return true;
 }

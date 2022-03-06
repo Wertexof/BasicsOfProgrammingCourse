@@ -4,7 +4,7 @@
 #include "libs/data_structures/vector/vectorVoid.c"
 #include "libs/tests.c"
 
-int main() {
+/*int main() {
     size_t n;
     scanf("%zd", &n);
 
@@ -24,4 +24,4 @@ int main() {
     }
 
     return 0;
-}
+}*/
