@@ -522,3 +522,27 @@ bool getWordReverse(char *rbegin, char *rend, WordDescriptor *word) {
 
     return true;
 }
+
+//№4.
+void replaceNumber(char *s) {
+    char *begin = s;
+    char *buf = _stringBuffer;
+
+    while (*begin != '\0') {
+        if (isdigit(*begin)) {
+            char digit = *begin - '0';
+            for (int i = 0; i < digit; i++) {
+                *buf = ' ';
+                buf++;
+            }
+        } else {
+            *buf = *begin;
+            buf++;
+        }
+
+        begin++;
+    }
+
+    *buf = '\0';
+    copy(_stringBuffer, buf, s);
+}
