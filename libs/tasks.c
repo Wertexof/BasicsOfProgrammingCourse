@@ -579,3 +579,22 @@ void replace(char *source, char *w1, char *w2) {
         *recPtr = '\0';
     }
 }
+
+//№6.
+bool orderedLexicographically(char *s) {
+    WordDescriptor beginWord;
+    WordDescriptor nextWord;
+
+    if (!getWord(s, &beginWord))
+        return true;
+
+    while (getWord(s, &nextWord)) {
+        if (areWordsEqual(beginWord, nextWord) == false && strcmp(beginWord.begin, nextWord.begin) > 0)
+            return false;
+
+        beginWord = nextWord;
+        s = nextWord.end;
+    }
+
+    return true;
+}
