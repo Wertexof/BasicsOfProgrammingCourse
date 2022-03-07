@@ -25,3 +25,9 @@
 
     return 0;
 }*/
+
+int main() {
+    test_string();
+
+    return 0;
+}

@@ -1061,3 +1061,17 @@ void test_findNonSpaceReverse() {
     test_findNonSpaceReverse1();
     test_findNonSpaceReverse2();
 }
+
+void test_string() {
+    test_find();
+    test_findNonSpace();
+    test_findSpace();
+    test_findSpaceReverse();
+    test_findNonSpaceReverse();
+}
+
+///STRING_TASKS_TESTS
+
+void test_stringTasks() {
+
+}

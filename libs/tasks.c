@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <stdlib.h>
 #include <math.h>
-#include <malloc.h>
-#include <assert.h>
+#include <ctype.h>
 #include "data_structures/matrix/matrix.c"
 #include "data_structures/matrix/matrix.h"
 #include "data_structures/string/string_.c"
@@ -597,4 +596,41 @@ bool orderedLexicographically(char *s) {
     }
 
     return true;
+}
+
+//№5.
+void getBagOfWords(BagOfWords *bag, char *s) {
+    WordDescriptor w;
+    bag->size = 0;
+
+    while (getWord(s, &w)) {
+        bag->words[bag->size++] = w;
+        s = w.end;
+    }
+}
+
+//№6.
+bool isPalindrome(WordDescriptor s) {
+    char *left = s.begin;
+    char *right = s.end - 1;
+
+    while (right > left) {
+        if (*(left) != *(right))
+            return false;
+
+        left++;
+        right--;
+    }
+
+    return true;
+}
+
+char *findComma(char *begin) {
+    while (*begin != '\0') {
+        if (*begin == ',')
+            return begin;
+        begin++;
+    }
+
+    return begin;
 }
