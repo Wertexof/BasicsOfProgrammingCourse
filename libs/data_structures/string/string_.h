@@ -69,6 +69,9 @@ char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
 //Возвращает конец строки
 char *getEndOfString(char *str);
 
+//проверка на идентичность слов
+int areWordsEqual(WordDescriptor w1, WordDescriptor w2);
+
 //вернёт значение 0, если слово не было считано, в противном
 //случае будет возвращено значение 1
 int getWord(char *beginSearch, WordDescriptor *word);

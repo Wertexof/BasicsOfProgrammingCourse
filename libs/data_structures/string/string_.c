@@ -97,6 +97,16 @@ char *getEndOfString(char *str) {
     return str;
 }
 
+int areWordsEqual(WordDescriptor w1, WordDescriptor w2) {
+    size_t firstWordLength = w1.end - w1.begin - 1;
+    size_t secondWordLength = w2.end - w2.begin - 1;
+
+    if (firstWordLength != secondWordLength)
+        return 0;
+
+    return !memcmp(w1.begin, w2.begin, firstWordLength);
+}
+
 int getWord(char *beginSearch, WordDescriptor *word) {
     word->begin = findNonSpace(beginSearch);
     if (*word->begin == '\0 ')
