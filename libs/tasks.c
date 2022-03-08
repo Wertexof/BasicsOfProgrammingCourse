@@ -733,7 +733,7 @@ void printWordBeforeFirstWordWithA(char *s) {
 }
 
 //№12.
-bool task12(char *s1, char *s2) {
+bool lastWordFromFirstInSecondString(char *s1, char *s2) {
     WordDescriptor w, lastW;
     BagOfWords bag;
 
@@ -803,6 +803,23 @@ bool unityOfLettersInWords(char *s) {
 }
 
 //№15.
+void task15(char *s, char *res) {
+    WordDescriptor w, lastW;
+    char *start = s;
+    char *iWrite = res;
+    getWordReverse(getEndOfString(s) - 1, s - 1, &lastW);
+
+    while (getWord(start, &w)) {
+        if (!areWordsEqual(w, lastW)) {
+            iWrite = copy(w.begin, w.end, iWrite);
+            *iWrite++ = ' ';
+        }
+
+        start = w.end;
+    }
+
+    *(--iWrite) = '\0';
+}
 
 //№16.
 
