@@ -759,3 +759,34 @@ bool task12(char *s1, char *s2) {
 
     return haveWord;
 }
+
+//№13.
+bool beingEqualWord(char *s) {
+    WordDescriptor w1, w2;
+    char *start = s;
+
+    while (getWord(start, &w1)) {
+        char *cmp = w1.end;
+        start = w1.end;
+        while (getWord(cmp, &w2)) {
+            if (areWordsEqual(w1, w2))
+                return true;
+            cmp = w2.end;
+        }
+    }
+
+    return false;
+}
+
+//№14.
+
+
+//№15.
+
+//№16.
+
+//№17.
+
+//№18.
+
+//№19.
