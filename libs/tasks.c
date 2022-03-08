@@ -779,7 +779,28 @@ bool beingEqualWord(char *s) {
 }
 
 //№14.
+int compare_chars(const void *a, const void *b) {
+    char arg1 = *(const char *) a;
+    char arg2 = *(const char *) b;
 
+    if (arg1 < arg2) return -1;
+    if (arg1 > arg2) return 1;
+
+    return 0;
+}
+
+bool unityOfLettersInWords(char *s) {
+    WordDescriptor w;
+    char *start = _stringBuffer;
+    copy(s, getEndOfString(s) + 1, _stringBuffer);
+
+    while (getWord(start, &w)) {
+        qsort(w.begin, w.end - w.begin, sizeof(char), compare_chars);
+        start = w.end;
+    }
+
+    return beingEqualWord(_stringBuffer);
+}
 
 //№15.
 
