@@ -682,3 +682,52 @@ void changeTheOrderOfWords(char *s) {
 
     *(s - 1) = '\0';
 }
+
+//№11.
+bool isLetterA(WordDescriptor w) {
+    char *begin = w.begin;
+
+    while (begin != w.end) {
+        if (*begin == 'a' || *begin == 'A')
+            return true;
+
+        begin++;
+    }
+
+    return false;
+}
+
+WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDescriptor *word) {
+    WordDescriptor prevWord;
+    char *startWord = s;
+
+    if (!getWord(startWord, &prevWord))
+        return EMPTY_STRING;
+
+    if (*find(prevWord.begin, prevWord.end, 'a') == 'a' || *find(prevWord.begin, prevWord.end, 'A') == 'A')
+        return FIRST_WORD_WITH_A;
+
+    startWord = prevWord.end;
+    WordDescriptor lastWord;
+    while (getWord(startWord, &lastWord)) {
+        if (*find(lastWord.begin, lastWord.end, 'a') == 'a' || *find(lastWord.begin, lastWord.end, 'A') == 'A') {
+            *word = prevWord;
+            return WORD_FOUND;
+        }
+        startWord = lastWord.end;
+        prevWord = lastWord;
+    }
+    return NOT_FOUND_A_WORD_WITH_A;
+}
+
+void printWordBeforeFirstWordWithA(char *s) {
+    WordDescriptor w;
+    WordBeforeFirstWordWithAReturnCode code = getWordBeforeFirstWordWithA(s, &w);
+
+    if (code == WORD_FOUND) {
+        char *buff = copy(w.begin, w.end, _stringBuffer);
+        *buff = '\0';
+
+        printf("%s", _stringBuffer);
+    }
+}
