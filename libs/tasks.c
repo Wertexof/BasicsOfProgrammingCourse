@@ -598,7 +598,7 @@ bool orderedLexicographically(char *s) {
     return true;
 }
 
-//№5.
+//№7.
 void getBagOfWords(BagOfWords *bag, char *s) {
     WordDescriptor w;
     bag->size = 0;
@@ -609,7 +609,7 @@ void getBagOfWords(BagOfWords *bag, char *s) {
     }
 }
 
-//№6.
+//№8.
 bool isPalindrome(WordDescriptor s) {
     char *left = s.begin;
     char *right = s.end - 1;
@@ -633,4 +633,31 @@ char *findComma(char *begin) {
     }
 
     return begin;
+}
+
+//№9.
+void mixTwoStrings(char *s1, char *s2, char *s3) {
+    WordDescriptor word1, word2;
+    bool isW1Found, isW2Found;
+    char *beginSearch1 = s1, *beginSearch2 = s2;
+    while ((isW1Found = getWord(beginSearch1, &word1)),
+            (isW2Found = getWord(beginSearch2, &word2)),
+            isW1Found || isW2Found) {
+
+        if (isW1Found) {
+            s3 = copy(word1.begin, word1.end, s3);
+            *s3 = ' ';
+            s3++;
+            beginSearch1 = word1.end;
+        }
+
+        if (isW2Found) {
+            s3 = copy(word2.begin, word2.end, s3);
+            *s3 = ' ';
+            s3++;
+            beginSearch2 = word2.end;
+        }
+    }
+
+    *(s3 - 1) = '\0';
 }
