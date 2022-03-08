@@ -731,3 +731,31 @@ void printWordBeforeFirstWordWithA(char *s) {
         printf("%s", _stringBuffer);
     }
 }
+
+//№12.
+bool task12(char *s1, char *s2) {
+    WordDescriptor w, lastW;
+    BagOfWords bag;
+
+    getBagOfWords(&bag, s2);
+    char *start = s1;
+    bool haveWord = false;
+
+    while (getWord(start, &w)) {
+        WordDescriptor *readBag = bag.words;
+        int count = bag.size;
+
+        while (count--) {
+            if (areWordsEqual(w, *readBag)) {
+                lastW = w;
+                haveWord = true;
+            }
+
+            readBag++;
+        }
+
+        start = w.end;
+    }
+
+    return haveWord;
+}
