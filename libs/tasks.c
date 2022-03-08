@@ -661,3 +661,24 @@ void mixTwoStrings(char *s1, char *s2, char *s3) {
 
     *(s3 - 1) = '\0';
 }
+
+//№10.
+void changeTheOrderOfWords(char *s) {
+    if (*s == '\0')
+        return;
+
+    BagOfWords bag;
+    getBagOfWords(&bag, s);
+    char *buf = _stringBuffer;
+
+    for (int i = bag.size - 1; i >= 0; i--) {
+        buf = copy(bag.words[i].begin, bag.words[i].end, buf);
+        *buf = ' ';
+        buf++;
+    }
+
+    *buf = '\0';
+    s = copy(_stringBuffer, buf, s);
+
+    *(s - 1) = '\0';
+}
