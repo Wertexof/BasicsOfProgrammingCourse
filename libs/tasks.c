@@ -697,7 +697,7 @@ bool isLetterA(WordDescriptor w) {
     return false;
 }
 
-WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDescriptor *word) {
+WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, char *endWord) {
     WordDescriptor prevWord;
     char *startWord = s;
 
@@ -714,15 +714,17 @@ WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDesc
             *word = prevWord;
             return WORD_FOUND;
         }
+
         startWord = lastWord.end;
         prevWord = lastWord;
     }
+
     return NOT_FOUND_A_WORD_WITH_A;
 }
 
-void printWordBeforeFirstWordWithA(char *s) {
+void printWordBeforeFirstWordWithA(char *s, char *endWord) {
     WordDescriptor w;
-    WordBeforeFirstWordWithAReturnCode code = getWordBeforeFirstWordWithA(s, &w);
+    WordBeforeFirstWordWithAReturnCode code = getWordBeforeFirstWordWithA(s, endWord);
 
     if (code == WORD_FOUND) {
         char *buff = copy(w.begin, w.end, _stringBuffer);
@@ -803,7 +805,7 @@ bool unityOfLettersInWords(char *s) {
 }
 
 //№15.
-void task15(char *s, char *res) {
+void stringOfWordsOtherThanTheLastWord(char *s, char *res) {
     WordDescriptor w, lastW;
     char *start = s;
     char *iWrite = res;
@@ -904,3 +906,21 @@ void AdditionOfWordsForStringWithASmallerNumOfWords(char *s1, char *s2) {
 }
 
 //№19.
+bool allLettersInString(char *str, WordDescriptor w) {
+    bool strSymbols[MAX_UNCHAR + 1] = {false};
+
+    while (*str) {
+        strSymbols[*str] = true;
+        str++;
+    }
+    char *beginWord = w.begin;
+
+    while (beginWord < w.end) {
+        if (strSymbols[*beginWord] == false)
+            return false;
+
+        beginWord++;
+    }
+
+    return true;
+}
